@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/css/workoutsStyle.css" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Bellota+Text:ital@1&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            rel="stylesheet"
+            href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+            integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+            crossorigin=""
+        />
+        <script
+            defer
+            src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+            integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+            crossorigin=""
+        ></script>
+
+        <title>Track your workouts</title>
+        <script defer src="/javaScrips/workoutScrip.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="left">
+                <h2 class="left-title">
+                    Track your workouts with <br />
+                    <a href="index.html" class="home-btn">HomeGym</a>
+                </h2>
+
+                <div class="workout-container">
+                    <!-- !ADD this html in case the exercise is running -->
+                    <!-- 
+                    <div class="workout workout-running">
+                        <div class="workout-description">Running on May 4</div>
+                        <div class="stats-container">
+                            <div class="stat stat-distance">Distance: 3213</div>
+                            <div class="stat stat-duration">Duration: 35</div>
+                            <div class="stat stat-steps">Steps: 4000</div>
+                            <div class="stat stat-pace">Pace: 50</div>
+                        </div>
+                    </div -->
+
+                    <!-- !add this html in case the exercise is cycling -->
+                    <!--
+                    <div class="workout workout-cycling">
+                        <div class="workout-description">Running on May 4</div>
+                        <div class="stats-container">
+                            <div class="stat stat-distance">Distance: 3213</div>
+                            <div class="stat stat-duration">Duration: 35</div>
+                            <div class="stat stat-steps">Speed: 25</div>
+                            <div class="stat stat-pace">Elevation: 500</div>
+                        </div>
+                    </div>
+                    -->
+                </div>
+            </div>
+
+            <div class="map right" id="map"></div>
+        </div>
+        <!-- when initially clicking on the map -->
+        <div class="modal">
+            <div class="modal-title">Select your exercise</div>
+            <div class="modal-exercise-container">
+                <div class="modal-left">Running</div>
+                <div class="modal-right">Cycling</div>
+            </div>
+        </div>
+
+        <form class="form-input-running" data-value="running">
+            <div class="input-stats-title">
+                Input your Stats
+                <span class="close-modal-btn">&#10006;</span>
+            </div>
+            <div class="input-stats-container">
+                <!-- inputing distance -->
+                <label class="input">Distance</label>
+                <input class="input-distance-running" placeholder="km..." />
+                <!-- inputing duration -->
+                <label class="input">Duration</label>
+                <input class="input-duration-running" placeholder="min..." />
+                <!-- inputing cadence -->
+                <label class="input">Steps</label>
+                <input class="input-steps" placeholder="steps" />
+                <button type="submit" class="form-btn">OK</button>
+            </div>
+        </form>
+        <!-- !running -->
+        <form class="form-input-cycling" data-value="cycling">
+            <div class="input-stats-title">
+                Input your Stats
+                <span class="close-modal-btn">&#10006;</span>
+            </div>
+            <div class="input-stats-container">
+                <!-- inputing distance -->
+                <label class="input">Distance</label>
+                <input class="input-distance-cycling" placeholder="km..." />
+                <!-- inputing duration -->
+                <label class="input">Duration</label>
+                <input class="input-duration-cycling" placeholder="min..." />
+                <!-- inputing cadence -->
+                <label class="input">Elevation</label>
+                <input class="input-elevation" placeholder="m.." />
+                <button type="submit" class="form-btn">OK</button>
+            </div>
+        </form>
+    </body>
+</html>

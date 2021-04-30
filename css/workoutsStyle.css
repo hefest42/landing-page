@@ -1,0 +1,253 @@
+body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Bellota Text", cursive;
+    overflow: hidden;
+}
+
+a {
+    color: white;
+}
+
+/* left part of the site(exercies) */
+.container {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 30% 70%;
+    grid-template-areas: "left right";
+}
+
+.left {
+    background-color: rgb(22, 22, 22);
+    color: white;
+    grid-area: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.left-title {
+    margin-bottom: 3.5rem;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.workout-container {
+    color: black;
+    font-weight: 700;
+    height: 80%;
+    width: 90%;
+    padding: 0.5rem 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+/* individual exercises added with form submiting */
+.workout {
+    min-height: 4.5rem;
+    max-height: 8.5rem;
+    width: 90%;
+    margin-top: 1.25rem;
+    border-radius: 7px;
+    padding: 0.25rem 0.25rem;
+    display: grid;
+    grid-template-rows: 50% 50%;
+    cursor: pointer;
+}
+
+.workout-description {
+    font-size: 1.75rem;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.stats-container {
+    width: 95%;
+    font-size: 1rem;
+    font-weight: 900;
+    justify-self: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* in case exercise is running */
+.workout-running {
+    background-color: rgb(255, 189, 66);
+}
+
+/* in case exercise is running */
+.workout-cycling {
+    background-color: rgb(0, 252, 252);
+}
+
+.right {
+    position: relative;
+    grid-area: right;
+    z-index: 1;
+}
+
+/* modal */
+
+.modal {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 40%;
+    left: 50%;
+    background-color: black;
+    color: white;
+    width: 35rem;
+    height: 10rem;
+    text-transform: uppercase;
+    transform: translateY(400%) scale(0.01);
+    transition: all 0.5s ease-out;
+    z-index: 0;
+    border-radius: 20px;
+}
+
+/* !add this when clicking on the map */
+.modal-display {
+    display: flex;
+    transform: translateY(0) scale(1);
+    transition: all 0.5 ease-out;
+    z-index: 2;
+}
+
+.modal-title {
+    height: 25%;
+    text-align: center;
+    font-size: 2rem;
+}
+
+.modal-exercise-container {
+    display: flex;
+    height: 100%;
+    color: black;
+}
+
+.modal-left {
+    width: 50%;
+    height: 100%;
+    background-color: rgb(255, 189, 66);
+    color: white;
+    font-size: 3rem;
+    font-weight: bolder;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-right {
+    width: 50%;
+    height: 100%;
+    background-color: rgb(0, 252, 252);
+    color: white;
+    font-size: 3rem;
+    font-weight: bolder;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* stat input */
+
+.form-input-running {
+    /* display: none; */
+    position: absolute;
+    top: 35%;
+    left: 58%;
+    width: 15rem;
+    height: 15rem;
+    padding: 1.2rem 1.2rem;
+    background-color: black;
+    color: white;
+    z-index: 0;
+    transform: translateY(400%) scale(0.01);
+    transition: all 0.5s ease-out;
+}
+
+.form-input-cycling {
+    position: absolute;
+    top: 35%;
+    left: 58%;
+    width: 15rem;
+    height: 15rem;
+    padding: 1.2rem 1.2rem;
+    background-color: black;
+    z-index: 0;
+    color: white;
+    transform: translateY(400%) scale(0.01);
+    transition: all 0.5s ease-out;
+}
+
+.form-input-display {
+    transform: translateY(0) scale(1);
+    transition: all 0.5 ease-out;
+    z-index: 2;
+}
+
+button {
+    width: 30%;
+    background-color: white;
+    padding: 0.25rem;
+    border-radius: 10px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1rem;
+}
+
+.input-stats-title {
+    height: 15%;
+    font-size: 1.75rem;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.close-modal-btn {
+    cursor: pointer;
+}
+
+.input-stats-container {
+    margin-top: 1.5rem;
+    font-size: 1.2rem;
+    width: 100%;
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* styling for the popup marker */
+
+.leaflet-popup .leaflet-popup-content-wrapper {
+    color: black;
+    border-radius: 5px;
+    padding: 0.2rem 0.2rem;
+}
+
+.leaflet-popup .leaflet-popup-content {
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.leaflet-popup .leaflet-popup-tip {
+    display: none;
+}
+
+.running-popup .leaflet-popup-content-wrapper {
+    background-color: rgb(255, 189, 66);
+}
+.cycling-popup .leaflet-popup-content-wrapper {
+    background-color: rgb(0, 252, 252);
+}
